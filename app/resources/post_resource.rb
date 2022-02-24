@@ -8,6 +8,8 @@ class PostResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :comments
+
   has_many   :likes
 
   belongs_to :user
