@@ -1,0 +1,31 @@
+<!-- Form post start -->
+<%= form_with(model: @post, local: true) do |f| %>
+<!-- Form post end -->
+
+  <!-- Label and input for photo start -->
+  <div class="form-group">
+    <%= f.label :photo %>
+
+    <!-- Input for photo start -->
+    <%= f.text_field :photo, class: "form-control" %>
+    <!-- Input for photo end -->
+  </div>
+  <!-- Label and input for photo end -->
+
+  <!-- Label and input for user_id start -->
+  <!-- Input for user_id start -->
+  <%= f.hidden_field :user_id, value: @user.id %>
+  <!-- Input for user_id end -->
+  <!-- Label and input for user_id end -->
+
+  <!-- Label and input for caption start -->
+  <div class="form-group">
+    <%= f.label :caption %>
+    <!-- Input for caption start -->
+    <%= f.text_area :caption, rows: "3", class: "form-control" %>
+    <!-- Input for caption end -->
+  </div>
+  <!-- Label and input for caption end -->
+
+  <%= f.submit "Create post", class: "btn btn-block btn-outline-secondary" %>
+<% end %>
