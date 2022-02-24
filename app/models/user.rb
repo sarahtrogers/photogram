@@ -2,13 +2,13 @@ class User < ApplicationRecord
   # Direct associations
 
   has_many   :likes,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :comments,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :posts,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
@@ -19,5 +19,4 @@ class User < ApplicationRecord
   def to_s
     username
   end
-
 end

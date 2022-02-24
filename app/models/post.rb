@@ -4,10 +4,10 @@ class Post < ApplicationRecord
   # Direct associations
 
   has_many   :comments,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :likes,
-             :dependent => :destroy
+             dependent: :destroy
 
   belongs_to :user
 
@@ -20,5 +20,4 @@ class Post < ApplicationRecord
   def to_s
     created_at
   end
-
 end

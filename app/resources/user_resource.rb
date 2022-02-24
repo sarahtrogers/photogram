@@ -18,5 +18,4 @@ class UserResource < ApplicationResource
   has_many   :posts
 
   # Indirect associations
-
 end
