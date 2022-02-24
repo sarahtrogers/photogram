@@ -1,28 +1,23 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
 
-  # GET /posts
   def index
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true).includes(:user, :likes,
                                                 :comments).page(params[:page]).per(10)
   end
 
-  # GET /posts/1
   def show
     @comment = Comment.new
     @like = Like.new
   end
 
-  # GET /posts/new
   def new
     @post = Post.new
   end
 
-  # GET /posts/1/edit
   def edit; end
 
-  # POST /posts
   def create
     @post = Post.new(post_params)
 
@@ -38,7 +33,6 @@ class PostsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /posts/1
   def update
     if @post.update(post_params)
       redirect_to @post, notice: "Post was successfully updated."
@@ -47,7 +41,6 @@ class PostsController < ApplicationController
     end
   end
 
-  # DELETE /posts/1
   def destroy
     @post.destroy
     message = "Post was successfully deleted."
@@ -60,12 +53,10 @@ class PostsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_post
     @post = Post.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def post_params
     params.require(:post).permit(:photo, :user_id, :caption)
   end
