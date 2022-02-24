@@ -6,25 +6,19 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Photo</dt>
-      <!-- Display photo start -->
       <dd>
         <%= cl_image_tag @post.photo, class: "img-fluid" %>
       </dd>
-      <!-- Display photo end -->
 
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @post.user.present? %>
           <%= link_to post.user, post.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>Caption</dt>
-      <!-- Display caption start -->
       <dd><%= post.caption %></dd>
-      <!-- Display caption end -->
 
     </dl>
 
@@ -33,21 +27,17 @@
         <%= link_to_show_or_back post, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link post start -->
       <div class="col">
         <%= link_to edit_post_url(post), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link post end -->
 
-      <!-- Delete link post start -->
       <div class="col">
         <%= link_to post, method: :delete, data: { confirm: "Do you really want to delete this post?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link post end -->
     </div>
   </div>
 

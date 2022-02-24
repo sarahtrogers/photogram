@@ -6,34 +6,22 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Username</dt>
-      <!-- Display username start -->
       <dd><%= user.username %></dd>
-      <!-- Display username end -->
 
       <dt>Email</dt>
-      <!-- Display email start -->
       <dd><%= user.email %></dd>
-      <!-- Display email end -->
 
       <dt>Password</dt>
-      <!-- Display password start -->
       <dd><%= user.password %></dd>
-      <!-- Display password end -->
 
       <dt>Posts count</dt>
-      <!-- Display posts_count start -->
       <dd><%= user.posts_count %></dd>
-      <!-- Display posts_count end -->
 
       <dt>Followers count</dt>
-      <!-- Display followers_count start -->
       <dd><%= user.followers_count %></dd>
-      <!-- Display followers_count end -->
 
       <dt>Following count</dt>
-      <!-- Display following_count start -->
       <dd><%= user.following_count %></dd>
-      <!-- Display following_count end -->
 
     </dl>
 
@@ -42,21 +30,17 @@
         <%= link_to_show_or_back user, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link user start -->
       <div class="col">
         <%= link_to edit_user_url(user), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link user end -->
 
-      <!-- Delete link user start -->
       <div class="col">
         <%= link_to user, method: :delete, data: { confirm: "Do you really want to delete this user?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link user end -->
     </div>
   </div>
 

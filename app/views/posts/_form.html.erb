@@ -1,7 +1,6 @@
 <% was_validated = post.errors.any? %>
 
 <%= form_with(model: post, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for photo start -->
   <div class="form-group">
     <% photo_class = "form-control" %>
     <% photo_was_invalid = post.errors.include?(:photo) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :photo %>
-    <!-- Input for photo start -->
     <%= f.file_field :photo, class: "form-control" %>
-    <!-- Input for photo end -->
     <% if photo_was_invalid %>
       <% post.errors.full_messages_for(:photo).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for photo end -->
-  <!-- Label and input for user_id start -->
   <div class="form-group">
     <% user_class = "form-control" %>
     <% user_was_invalid = post.errors.include?(:user) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :user_id %>
-    <!-- Input for user_id start -->
     <%= f.collection_select :user_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for user_id end -->
     <% if user_was_invalid %>
       <% post.errors.full_messages_for(:user).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for user_id end -->
-  <!-- Label and input for caption start -->
   <div class="form-group">
     <% caption_class = "form-control" %>
     <% caption_was_invalid = post.errors.include?(:caption) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :caption %>
-    <!-- Input for caption start -->
     <%= f.text_area :caption, class: caption_class, placeholder: "Enter caption" %>
-    <!-- Input for caption end -->
     <% if caption_was_invalid %>
       <% post.errors.full_messages_for(:caption).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,6 +67,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for caption end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>
